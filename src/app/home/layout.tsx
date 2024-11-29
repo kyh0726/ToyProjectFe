@@ -8,14 +8,14 @@ export default function HomeLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="flex h-screen">
+        <div className="flex h-full h-full">
             {/* Sidebar */}
             
-            <aside className="w-64 bg-gray-800 text-white p-4 z-10 h-screen">
+            <aside className="w-64 bg-gray-600 text-white p-4 z-10 flex-grow min-h-screen">
                 <h1 className="text-xl font-bold mb-4">ShoppingMall</h1>
 
                 <nav>
-                    <ul className='z-1'>
+                <ul className="flex flex-col justify-between h-full">
                         <li className="mb-2"><Link href="/home">홈</Link></li>
                         <li className="mb-2"><Link href="/home/shop">shop 페이지</Link></li>
                         <li className="mb-2"><Link href="/home/recharge">충전 페이지</Link></li>
@@ -27,10 +27,10 @@ export default function HomeLayout({
             </aside>
 
             {/* Main Content */}       
-            <div className='w-full h-screen bg-gray-100'>
-            <Banner message="📢 Don't miss out on our latest updates!" />
+            <div className='w-full bg-gray-100'>
+                <Banner message="📢 Don't miss out on our latest updates!" />
 
-            <main className="flex-1 p-6">{children}</main>
+                <main className="flex-1 bg-gray-100 p-6">{children}</main>
             </div>
         </div>
     );
