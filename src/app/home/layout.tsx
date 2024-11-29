@@ -1,7 +1,7 @@
 // app/dashboard/layout.tsx
 import Link from 'next/link';
 import React from 'react';
-
+import { Banner } from '@/shared';
 export default function HomeLayout({
     children,
 }: {
@@ -10,10 +10,12 @@ export default function HomeLayout({
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
-            <aside className="w-64 bg-gray-800 text-white p-4">
-                <h1 className="text-xl font-bold mb-4">Dashboard</h1>
+            
+            <aside className="w-64 bg-gray-800 text-white p-4 z-10 h-screen">
+                <h1 className="text-xl font-bold mb-4">ShoppingMall</h1>
+
                 <nav>
-                    <ul>
+                    <ul className='z-1'>
                         <li className="mb-2"><Link href="/home">홈</Link></li>
                         <li className="mb-2"><Link href="/home/shop">shop 페이지</Link></li>
                         <li className="mb-2"><Link href="/home/recharge">충전 페이지</Link></li>
@@ -24,8 +26,12 @@ export default function HomeLayout({
                 </nav>
             </aside>
 
-            {/* Main Content */}
-            <main className="flex-1 bg-gray-100 p-6">{children}</main>
+            {/* Main Content */}       
+            <div className='w-full h-screen bg-gray-100'>
+            <Banner message="📢 Don't miss out on our latest updates!" />
+
+            <main className="flex-1 p-6">{children}</main>
+            </div>
         </div>
     );
 }
