@@ -5,63 +5,84 @@ import { useState } from "react";
 
 const shoppingItems: Item.ShoppingItemProps[] = [
     {
-      name: "T-Shirt",
-      price: 19.99,
-      category: "Clothing",
+        id: "item-1",
+        name: "T-Shirt",
+        price: 19.99,
+        category: "Clothing",
+        remainingStock: 92,
     },
     {
-      name: "Laptop",
-      price: 999.99,
-      category: "Electronics",
+        id: "item-2",
+        name: "Laptop",
+        price: 999.99,
+        category: "Electronics",
+        remainingStock: 76,
     },
     {
-      name: "Coffee Mug",
-      price: 9.99,
-      category: "Home",
+        id: "item-3",
+        name: "Coffee Mug",
+        price: 9.99,
+        category: "Home",
+        remainingStock: 74,
     },
     {
-      name: "Headphones",
-      price: 199.99,
-      category: "Electronics",
+        id: "item-4",
+        name: "Headphones",
+        price: 199.99,
+        category: "Electronics",
+        remainingStock: 16,
     },
     {
-      name: "Sneakers",
-      price: 59.99,
-      category: "Clothing",
+        id: "item-5",
+        name: "Sneakers",
+        price: 59.99,
+        category: "Clothing",
+        remainingStock: 36,
     },
     {
-      name: "Backpack",
-      price: 49.99,
-      category: "Accessories",
+        id: "item-6",
+        name: "Backpack",
+        price: 49.99,
+        category: "Accessories",
+        remainingStock: 52,
     },
     {
-      name: "Smartphone",
-      price: 699.99,
-      category: "Electronics",
+        id: "item-7",
+        name: "Smartphone",
+        price: 699.99,
+        category: "Electronics",
+        remainingStock: 4,
     },
     {
-      name: "Cookware Set",
-      price: 129.99,
-      category: "Home",
+        id: "item-8",
+        name: "Cookware Set",
+        price: 129.99,
+        category: "Home",
+        remainingStock: 57,
     },
     {
-      name: "Gaming Chair",
-      price: 349.99,
-      category: "Furniture",
+        id: "item-9",
+        name: "Gaming Chair",
+        price: 349.99,
+        category: "Furniture",
+        remainingStock: 22,
     },
     {
-      name: "Bluetooth Speaker",
-      price: 49.99,
-      category: "Electronics",
+        id: "item-10",
+        name: "Bluetooth Speaker",
+        price: 49.99,
+        category: "Electronics",
+        remainingStock: 32,
     },
   ];
 
 export default function ShoppingItemContainer () {
 
-    const [filter, setFilter] = useState<string>("ALL");
+    const [filter, setFilter] = useState<string>("All");
     const filteredItems = shoppingItems.filter((item) =>
         filter === "All" ? true : item.category === filter
       );
+
 
       return (
         <div className="p-6">
@@ -87,6 +108,8 @@ export default function ShoppingItemContainer () {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {filteredItems.map((item, index) => (
               <ShoppingItem
+                id = {item.id}
+                remainingStock={item.remainingStock}
                 key={index}
                 name={item.name}
                 price={item.price}
